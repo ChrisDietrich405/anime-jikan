@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom"
 
-import { IData } from "./model"
+import { IData } from "../models/model"
 
 const Character = (character: IData) => {
   const navigate = useNavigate()

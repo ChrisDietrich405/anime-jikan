@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { api } from "./services/api";
+import { api } from "../services/api";
 
-import Character from "./Character";
+import Character from "../components/Character";
 
-import { IAnimeData, IData } from "./model";
+import { IAnimeData, IData } from "../models/model";
+import Pagination from "../components/Pagination";
 //https://api.jikan.moe/v4/characters/${animeID}
 
 const Anime = () => {
@@ -11,28 +12,25 @@ const Anime = () => {
   const [animeData, setAnimeData] = useState<IAnimeData | null>(null);
 
   const fetchAPI = async () => {
-    const response = await api.get(`characters?q=${searchAnime}`);
+    const response = await api.get(`characters?page=1&q=${searchAnime}`);
     setAnimeData(response.data);
+    console.log(response.data.pagination)
   };
 
   useEffect(() => {
     fetchAPI();
   }, []);
 
-  const handleSearchCharacter = () => {
-    fetchAPI();
-  };
-
-  // DEBOUNCE
-
   return (
     <div>
+    
+      <Pagination pagination={animeData?.pagination} />
       <input
         type="text"
         value={searchAnime}
         onChange={(e) => setSearchAnime(e.target.value)}
       />
-      <button onClick={handleSearchCharacter}>search anime characther</button>
+      <button onClick={fetchAPI}>search anime characther</button>
       
       {animeData?.data.map((character: IData) => {
         return (

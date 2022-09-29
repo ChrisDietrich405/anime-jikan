@@ -4,10 +4,9 @@ interface IImages {
   };
   webp: {
     image_url: string;
-    small_image_url: string; 
-  }
+    small_image_url: string;
+  };
 }
-
 
 export interface IData {
   mal_id: number;
@@ -25,4 +24,17 @@ export interface IAnimeData {
   pagination: {};
   meta: {};
   links: {};
+}
+
+export interface IPagination {
+  current_page: number;
+  has_next_page: boolean;
+  items: IPaginationItems;
+  last_visible_page: number;
+}
+
+export interface IPaginationItems {
+  count: number;
+  per_page: number;
+  total: number;
 }
