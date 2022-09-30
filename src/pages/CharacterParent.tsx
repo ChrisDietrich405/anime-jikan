@@ -10,9 +10,10 @@ import Pagination from "../components/Pagination";
 const Anime = () => {
   const [searchAnime, setSearchAnime] = useState<string>("");
   const [animeData, setAnimeData] = useState<IAnimeData | null>(null);
+  const [animePage, setAnimePage] = useState<number>(1)
 
   const fetchAPI = async () => {
-    const response = await api.get(`characters?page=1&q=${searchAnime}`);
+    const response = await api.get(`characters?page=${animePage}&q=${searchAnime}`);
     setAnimeData(response.data);
     console.log(response.data.pagination)
   };
@@ -24,7 +25,7 @@ const Anime = () => {
   return (
     <div>
     
-      <Pagination pagination={animeData?.pagination} />
+      <Pagination pagination={animeData?.pagination} animePage={animePage} setAnimePage={setAnimePage} />
       <input
         type="text"
         value={searchAnime}
