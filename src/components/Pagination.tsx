@@ -1,23 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { IPagination } from "../models/model";
 
-const Pagination = (props) => {
-  const numberRender = (paginationNumber: number) => {
-    let paginationString = ""
-    for (let i = 1; i <= 100; i++) {
-      paginationString += `<button onClick=${() => props.setAnimePage(i)}>${i}</button>`
+interface PaginationProps {
+  animeDataPagination?: IPagination | null | undefined;
+  animePage: number;
+  setAnimePage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Pagination = ({
+  animeDataPagination,
+  animePage,
+  setAnimePage,
+}: PaginationProps) => {
+
+  const pages = () => {
+    const buttonPages: any[] = [];
+    for (let i = 1; i <= animeDataPagination?.last_visible_page; i++) {
+      buttonPages.push(<button onClick={() => setAnimePage(i)}>{i}</button>);
+      
     }
-    return paginationString
+    
+    return buttonPages;
   };
 
-
-
-  return <div dangerouslySetInnerHTML={{__html: numberRender(props.pagination?.last_visible_page)}}>
-
-  </div>;
+  return (
+    <>{pages().map((btn) => btn)}</>  
+    // {buttonPages.map((btn) => {
+    //   return (
+    //     <button>{btn}</button>
+    //   )
+    // })}
+  );
 };
 
 export default Pagination;
-
-
-

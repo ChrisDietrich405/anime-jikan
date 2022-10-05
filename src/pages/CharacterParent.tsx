@@ -15,17 +15,17 @@ const Anime = () => {
   const fetchAPI = async () => {
     const response = await api.get(`characters?page=${animePage}&q=${searchAnime}`);
     setAnimeData(response.data);
-    console.log(response.data.pagination)
+   
   };
 
   useEffect(() => {
     fetchAPI();
-  }, []);
+  }, [animePage]);
 
   return (
     <div>
-    
-      <Pagination pagination={animeData?.pagination} animePage={animePage} setAnimePage={setAnimePage} />
+      <p>you're on page {animePage}</p>
+      <Pagination animeDataPagination={animeData?.pagination} animePage={animePage} setAnimePage={setAnimePage} />
       <input
         type="text"
         value={searchAnime}
