@@ -5,6 +5,7 @@ import Character from "../components/Character";
 
 import { IAnimeData, IData } from "../models/model";
 import Pagination from "../components/Pagination";
+import PaginationLibrary from "../components/PaginationLibrary"
 //https://api.jikan.moe/v4/characters/${animeID}
 
 const Anime = () => {
@@ -24,8 +25,9 @@ const Anime = () => {
 
   return (
     <div>
-      <p>you're on page {animePage}</p>
-      <Pagination animeDataPagination={animeData?.pagination} animePage={animePage} setAnimePage={setAnimePage} />
+      <PaginationLibrary/>
+      {/* <p>you're on page {animePage}</p>
+      <Pagination animeDataPagination={animeData?.pagination} animePage={animePage} setAnimePage={setAnimePage} /> */}
       <input
         type="text"
         value={searchAnime}
