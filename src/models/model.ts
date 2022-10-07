@@ -30,7 +30,7 @@ export interface IPagination {
   current_page?: number;
   has_next_page?: boolean;
   items?: IPaginationItems;
-  last_visible_page?: any;
+  last_visible_page?: number;
 }
 
 export interface IPaginationItems {

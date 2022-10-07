@@ -25,11 +25,7 @@ const Pagination = ({
 
   return (
     <>{pages().map((btn) => btn)}</>  
-    // {buttonPages.map((btn) => {
-    //   return (
-    //     <button>{btn}</button>
-    //   )
-    // })}
+  
   );
 };
 
