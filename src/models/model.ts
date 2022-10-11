@@ -21,7 +21,7 @@ export interface IData {
 
 export interface IAnimeData {
   data: IData[];
-  pagination: {};
+  pagination: IPagination;
   meta: {};
   links: {};
 }
@@ -30,7 +30,7 @@ export interface IPagination {
   current_page?: number;
   has_next_page?: boolean;
   items?: IPaginationItems;
-  last_visible_page?: number;
+  last_visible_page?: any;
 }
 
 export interface IPaginationItems {
