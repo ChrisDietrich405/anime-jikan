@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CharacterItem from "./pages/CharacterItem";
 import CharacterParent from "./pages/CharacterParent";
 import reactLogo from "./assets/react.svg";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import "./App.css";
 
@@ -14,8 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/character" element={<CharacterParent />} />
