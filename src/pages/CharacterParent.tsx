@@ -26,13 +26,13 @@ const Anime = () => {
 
   return (
     <div>
-      <PaginationLibrary animePage={animePage} itemsPerPage={25} pageTotal={animeData?.pagination.last_visible_page}/>
-      {/* <p>you're on page {animePage}</p>
-      <Pagination
-        animeDataPagination={animeData?.pagination}
-        animePage={animePage}
+      <PaginationLibrary
+   
+        itemsPerPage={25}
+        pageTotal={animeData?.pagination.last_visible_page}
         setAnimePage={setAnimePage}
-      /> */}
+      />
+     
       <input
         type="text"
         value={searchAnime}
@@ -47,6 +47,11 @@ const Anime = () => {
           </>
         );
       })}
+       <PaginationLibrary
+        itemsPerPage={25}
+        pageTotal={animeData?.pagination.last_visible_page}
+        setAnimePage={setAnimePage}
+      />
     </div>
   );
 };

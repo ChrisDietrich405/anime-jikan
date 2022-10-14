@@ -6,6 +6,7 @@ import CharacterParent from "./pages/CharacterParent";
 import reactLogo from "./assets/react.svg";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import "./App.css";
 
 //https://docs.api.jikan.moe/#tag/manga/operation/getMangaById
@@ -17,6 +18,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/character" element={<CharacterParent />} />
           <Route path="/character/:applepie" element={<CharacterItem />} />
         </Routes>
