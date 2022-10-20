@@ -15,12 +15,16 @@ interface IPage {
 
 const PaginationLibrary = ({ itemsPerPage, pageTotal, setAnimePage}: PaginationLibraryProps) => {
   return (
+    <>
+    {JSON.stringify({itemsPerPage, pageTotal})}
     <Paginate
+    
       total={pageTotal} //total number of pages
       limit={itemsPerPage} //
       onPageChange={(page: IPage) => setAnimePage(page.selected)}
-
-    />
+      
+      />
+      </>
   );
 };
 
