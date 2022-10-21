@@ -1,9 +1,14 @@
 import React from 'react'
 
-const index = () => {
+const Login = () => {
   return (
-    <div>index</div>
+    <div>
+      <form>
+        <input type="text" placeholder="username" />
+        <input type="text" placeholder="password" />
+      </form>
+    </div>
   )
 }
 
-export default index
+export default Login
